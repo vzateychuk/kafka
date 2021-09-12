@@ -2,29 +2,29 @@
 
 Using Kafka cluster with Java
 
-Дата: 2021-09-12
+Р”Р°С‚Р°: 2021-09-12
 
-## Содержание kafka-cluster.yml
-Созданный кластер будет содержать:
+## РЎРѕРґРµСЂР¶Р°РЅРёРµ kafka-cluster.yml
+РЎРѕР·РґР°РЅРЅС‹Р№ РєР»Р°СЃС‚РµСЂ Р±СѓРґРµС‚ СЃРѕРґРµСЂР¶Р°С‚СЊ:
 - Zookeeper;
 - Kafka1/Kafka2/Kafka3 broker;
 - KafDrop UI
 
-### Запуск Kafka кластера
-Для запуска можно использовать команду
+### Р—Р°РїСѓСЃРє Kafka РєР»Р°СЃС‚РµСЂР°
+Р”Р»СЏ Р·Р°РїСѓСЃРєР° РјРѕР¶РЅРѕ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РєРѕРјР°РЅРґСѓ
 ```shell
 docker-compose -f kafka-cluster.yml up -d
 ```
 
-### Остановка
-Для остановки кластера можно использовать
+### РћСЃС‚Р°РЅРѕРІРєР°
+Р”Р»СЏ РѕСЃС‚Р°РЅРѕРІРєРё РєР»Р°СЃС‚РµСЂР° РјРѕР¶РЅРѕ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ
 ```shell
 docker-compose -f kafka-cluster.yml down
 ```
 
 ### Kafdrop UI
-Доступен по адресу [http://localhost:9000/](http://localhost:9000/)
+Р”РѕСЃС‚СѓРїРµРЅ РїРѕ Р°РґСЂРµСЃСѓ [http://localhost:9000/](http://localhost:9000/)
 
 ## Link:
-[Курс LinkedinLeaning - Apache Kafka Essential Training: Building Scalable Applications, автор Kumaran Ponnambalam](https://www.linkedin.com/learning/apache-kafka-essential-training-building-scalable-applications/why-are-kafka-skills-so-high-in-demand)
+[РљСѓСЂСЃ LinkedinLeaning - Apache Kafka Essential Training: Building Scalable Applications, Р°РІС‚РѕСЂ Kumaran Ponnambalam](https://www.linkedin.com/learning/apache-kafka-essential-training-building-scalable-applications/why-are-kafka-skills-so-high-in-demand)
 
