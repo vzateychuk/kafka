@@ -1,4 +1,4 @@
-# Apache Kafka project
+# Apache Kafka multi-module Java project
 
 Using Kafka cluster with Java
 

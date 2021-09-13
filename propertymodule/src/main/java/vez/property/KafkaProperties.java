@@ -1,4 +1,4 @@
-package vez;
+package vez.property;
 
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.producer.ProducerConfig;
@@ -10,7 +10,7 @@ public class KafkaProperties {
     private static final String DESERIALIZER_CLASS = "org.apache.kafka.common.serialization.StringDeserializer";
     private static final String STRING_SERIALIZER = "org.apache.kafka.common.serialization.StringSerializer";
 
-    static Properties newKafkaProperties() {
+    public static Properties newKafkaProperties() {
 
         Properties kafkaProps = new Properties();
 
