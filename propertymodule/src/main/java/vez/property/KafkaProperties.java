@@ -7,6 +7,8 @@ import java.util.Properties;
 
 public class KafkaProperties {
 
+    public static final String TOPIC_NAME = "kafka.learning.orders";
+
     private static final String DESERIALIZER_CLASS = "org.apache.kafka.common.serialization.StringDeserializer";
     private static final String STRING_SERIALIZER = "org.apache.kafka.common.serialization.StringSerializer";
 

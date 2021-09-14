@@ -9,6 +9,7 @@ import java.util.Random;
 public class KafkaSimpleProducer {
 
     private static final long INTERVAL_MILLS = 10;
+    private static final int AMOUNT_PRODUCE = 100;
 
     public static void main(String[] args) {
 
@@ -18,13 +19,13 @@ public class KafkaSimpleProducer {
         //Publish 10 messages with intervals, and a random key
         try{
 
-            int startKey = (new Random()).nextInt(10_000) ;
+            int startKey = (new Random()).nextInt(1_000) ;
 
-            for( int i=startKey; i < startKey + 10; i++) {
+            for(int i = startKey; i < startKey + AMOUNT_PRODUCE; i++) {
                 //Create a producer Record
                 ProducerRecord<String, String> kafkaRecord =
                         new ProducerRecord<String, String>(
-                                "kafka.learning.orders",   //Topic name
+                                KafkaProperties.TOPIC_NAME,   //Topic name
                                 String.valueOf(i),              //Key for the message
                                 "This is order" + i       //Message Content
                         );
