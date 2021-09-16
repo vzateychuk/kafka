@@ -2,6 +2,7 @@ package vez.producer;
 
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
+import org.apache.kafka.clients.producer.RecordMetadata;
 import vez.property.KafkaProperties;
 
 import java.util.Random;
@@ -23,14 +24,16 @@ public class KafkaSimpleProducer {
 
             for(int i = startKey; i < startKey + AMOUNT_PRODUCE; i++) {
                 //Create a producer Record
-                ProducerRecord<String, String> asyncNoCheckRec = new ProducerRecord<>(
-                                KafkaProperties.TOPIC_NAME,   //Topic name
+                ProducerRecord<String, String> syncRec = new ProducerRecord<>(
+                                KafkaProperties.TOPIC_NAME,     //Topic name
                                 String.valueOf(i),              //Key for the message
-                                "Published async with no check " + i       //Message Content
+                                "Published Sync " + i      //Message Content
                         );
-                System.out.println("Sending asyncNoCheck Message : "+ asyncNoCheckRec);
-                //Publish to Kafka
-                optionProducer.send(asyncNoCheckRec);
+
+                //Publish Sync to Kafka
+                RecordMetadata meta = (RecordMetadata)optionProducer.send(syncRec).get();
+                System.out.println("Sent Sync : "+ syncRec + ", received partition: " + meta.partition()
+                        + ", offset: "+ meta.offset());
                 Thread.sleep(INTERVAL_MILLS);
             }
         } catch(Exception e) {

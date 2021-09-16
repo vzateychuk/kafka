@@ -6,7 +6,7 @@
 
     <groupId>vez</groupId>
     <artifactId>kafkamultimodule</artifactId>
-    <version>1.1</version>
+    <version>1.2</version>
     <name>kafkamultimodule</name>
     <packaging>pom</packaging>
 
@@ -24,7 +24,7 @@
         <dependency>
             <groupId>vez</groupId>
             <artifactId>propertymodule</artifactId>
-            <version>1.1</version>
+            <version>1.2</version>
         </dependency>
     </dependencies>
 
