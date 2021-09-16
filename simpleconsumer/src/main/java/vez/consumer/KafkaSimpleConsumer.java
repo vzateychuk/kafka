@@ -11,7 +11,7 @@ import java.util.Random;
 
 public class KafkaSimpleConsumer {
 
-    private static final int CONSUMER_INTERVAL_MILLS = 5_000;
+    private static final int CONSUMER_INTERVAL_MILLS = 3_000;
 
     public static void main(String[] args) throws InterruptedException {
 
