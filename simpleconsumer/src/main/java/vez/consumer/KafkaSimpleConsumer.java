@@ -16,7 +16,7 @@ public class KafkaSimpleConsumer {
     public static void main(String[] args) throws InterruptedException {
 
         //Create a Consumer with properties for consumer
-        KafkaConsumer<String, String> simpleConsumer = new KafkaConsumer<>( KafkaProperties.newKafkaProperties() );
+        KafkaConsumer<String, String> simpleConsumer = new KafkaConsumer<>( KafkaProperties.newConsumerProps() );
 
         //Subscribe to the kafka.learning.orders topic
         simpleConsumer.subscribe(Collections.singletonList( KafkaProperties.TOPIC_NAME ));

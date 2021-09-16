@@ -6,7 +6,7 @@
 
     <groupId>vez</groupId>
     <artifactId>kafkamultimodule</artifactId>
-    <version>1.0</version>
+    <version>1.1</version>
     <name>kafkamultimodule</name>
     <packaging>pom</packaging>
 
@@ -19,6 +19,14 @@
         <module>simpleproducer</module>
         <module>simpleconsumer</module>
     </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>vez</groupId>
+            <artifactId>propertymodule</artifactId>
+            <version>1.1</version>
+        </dependency>
+    </dependencies>
 
     <build>
         <plugins>

@@ -9,12 +9,12 @@ import java.util.Random;
 public class KafkaSimpleProducer {
 
     private static final long INTERVAL_MILLS = 1000;
-    private static final int AMOUNT_PRODUCE = 100;
+    private static final int AMOUNT_PRODUCE = 5;
 
     public static void main(String[] args) {
 
         //Create a Kafka producer from configuration
-        KafkaProducer simpleProducer = new KafkaProducer( KafkaProperties.newKafkaProperties() );
+        KafkaProducer optionProducer = new KafkaProducer( KafkaProperties.newProducerProperties() );
 
         //Publish 10 messages with intervals, and a random key
         try{
@@ -23,21 +23,20 @@ public class KafkaSimpleProducer {
 
             for(int i = startKey; i < startKey + AMOUNT_PRODUCE; i++) {
                 //Create a producer Record
-                ProducerRecord<String, String> kafkaRecord =
-                        new ProducerRecord<String, String>(
+                ProducerRecord<String, String> asyncNoCheckRec = new ProducerRecord<>(
                                 KafkaProperties.TOPIC_NAME,   //Topic name
                                 String.valueOf(i),              //Key for the message
-                                "This is order" + i       //Message Content
+                                "Published async with no check " + i       //Message Content
                         );
-                System.out.println("Sending Message : "+ kafkaRecord);
+                System.out.println("Sending asyncNoCheck Message : "+ asyncNoCheckRec);
                 //Publish to Kafka
-                simpleProducer.send(kafkaRecord);
+                optionProducer.send(asyncNoCheckRec);
                 Thread.sleep(INTERVAL_MILLS);
             }
         } catch(Exception e) {
             System.out.println("Exception when sending Message: "+ e);
         } finally {
-            simpleProducer.close();
+            optionProducer.close();
         }
     }
 
