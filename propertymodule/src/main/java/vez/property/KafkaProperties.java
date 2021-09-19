@@ -29,6 +29,26 @@ public class KafkaProperties {
         //Set to consume from the earliest message, on start when no offset is available in Kafka
         kafkaProps.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
 
+        //region Batching Parameters
+
+        //Set min bytes to 10 bytes
+        kafkaProps.put(ConsumerConfig.FETCH_MIN_BYTES_CONFIG, 10);
+
+        //Set max wait timeout to 100 ms
+        kafkaProps.put(ConsumerConfig.FETCH_MAX_WAIT_MS_CONFIG, 100);
+
+        //Set max fetch size per partition to 1 KB. Note that this will depend on total
+        //memory available to the process
+        kafkaProps.put(ConsumerConfig.MAX_PARTITION_FETCH_BYTES_CONFIG, 1024 );
+
+        //endregion
+        //region Autocommit Parameters
+
+        kafkaProps.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, false);
+
+        //Set auto commit to false
+
+        //endregion
         return kafkaProps;
     }
 
@@ -57,9 +77,6 @@ public class KafkaProperties {
 
         //List of Kafka brokers to connect to
         kafkaProps.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092,localhost:9093,localhost:9094");
-
-        //Consumer Group ID for this consumer
-        kafkaProps.put(ConsumerConfig.GROUP_ID_CONFIG, "kafka-java-consumer");
 
         return kafkaProps;
     }

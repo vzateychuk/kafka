@@ -8,8 +8,8 @@ import java.util.Random;
 
 public class KafkaSimpleProducer {
 
-    private static final long INTERVAL_MILLS = 1000;
-    private static final int AMOUNT_PRODUCE = 5;
+    private static final long INTERVAL_MILLS = 10;
+    private static final int AMOUNT_PRODUCE = 200;
 
     public static void main(String[] args) {
 

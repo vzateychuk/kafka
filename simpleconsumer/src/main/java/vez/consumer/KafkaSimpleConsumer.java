@@ -11,7 +11,7 @@ import java.util.Random;
 
 public class KafkaSimpleConsumer {
 
-    private static final int CONSUMER_INTERVAL_MILLS = 3_000;
+    private static final int CONSUMER_INTERVAL_MILLS = 1000;
 
     public static void main(String[] args) throws InterruptedException {
 
@@ -33,9 +33,10 @@ public class KafkaSimpleConsumer {
             for (ConsumerRecord<String, String> message : messages) {
                 System.out.println("Message fetched : " + message);
                 Thread.sleep(rnd.nextInt(CONSUMER_INTERVAL_MILLS)+10);
+                //Commit Async
+                simpleConsumer.commitAsync();
             }
         }
-
     }
 
 }
