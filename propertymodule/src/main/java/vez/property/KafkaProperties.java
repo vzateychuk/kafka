@@ -8,7 +8,7 @@ import java.util.Properties;
 
 public class KafkaProperties {
 
-    public static final String TOPIC_NAME = "kafka.learning.orders";
+    public static final String TOPIC_NAME = "new.orders";
 
     private static final String DESERIALIZER_CLASS = "org.apache.kafka.common.serialization.StringDeserializer";
     private static final String STRING_SERIALIZER = "org.apache.kafka.common.serialization.StringSerializer";
@@ -29,8 +29,6 @@ public class KafkaProperties {
         //Set to consume from the earliest message, on start when no offset is available in Kafka
         kafkaProps.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
 
-        //region Batching Parameters
-
         //Set min bytes to 10 bytes
         kafkaProps.put(ConsumerConfig.FETCH_MIN_BYTES_CONFIG, 10);
 
@@ -41,12 +39,8 @@ public class KafkaProperties {
         //memory available to the process
         kafkaProps.put(ConsumerConfig.MAX_PARTITION_FETCH_BYTES_CONFIG, 1024 );
 
-        //endregion
-        //region Autocommit Parameters
-
-        kafkaProps.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, false);
-
         //Set auto commit to false
+        kafkaProps.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, false);
 
         //endregion
         return kafkaProps;
